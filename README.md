@@ -1,24 +1,27 @@
-# MayaProtect - Microservice <INSERT NAME>
+# AngularMayaProtect
 
-<Microservice description>
-<Last build info>
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
-## How to build
+## Development server
 
-## Usage
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Contributors
-<firstname> <lastname> - <email>
+## Code scaffolding
 
-## Licence
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-```plaintext
-<Microservice's Name>
-Copyright (C) 2022  <name of author>
+## Build
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
+## Running unit tests
 
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
-```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
