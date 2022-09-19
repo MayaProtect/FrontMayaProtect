@@ -1,11 +1,29 @@
-<table mat-table [dataSource]="data_display" class="mat-elevation-z8">
-  <ng-container *ngFor="let item of data_header">
-    <ng-container matColumnDef="{{item}}">
-      <th mat-header-cell *matHeaderCellDef>{{ item }}</th>
-      <td mat-cell [ngClass]="innerIndex % 2 == 0 ? 'row-color-black' : 'row-color-yellow'" *matCellDef="let element; let innerIndex = index"> {{element[item]}}</td>
-    </ng-container>
-  </ng-container>
+<p-table [value]="data_display" [paginator]="true" [rows]="25" [rowsPerPageOptions]="[25, 50, 100]"
+[lazy]="true" (onLazyLoad)="loadHives($event)" [totalRecords]="count_hives">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let el of data_header">{{el}}</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="loadingBody">
+    <tr>
+      <td><p-skeleton></p-skeleton></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
+    <tr routerLink="/event">
+      <td *ngFor="let el of data_header" class="row-text-color" [ngClass]="rowIndex % 2 == 0 ? 'row-color-yellow' : 'row-color-black'">
+        <ng-container [ngSwitch]="el">
+          <ng-container *ngSwitchCase="'owner'">
+            {{data[el].name}}
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            {{data[el]}}
+          </ng-container>
+        </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
