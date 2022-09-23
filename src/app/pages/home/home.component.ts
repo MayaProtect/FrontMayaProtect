@@ -1,26 +1,41 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
+import { Observable, Observer, interval, async } from "rxjs";
+import { HivesService } from "../../services/hives.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, AfterContentChecked {
+  dataIsReady: Boolean = false
+  hives_data: Object = [];
+  count_hives: number = 0;
+  elements_per_page: number = 0;
+  constructor(private api:HivesService, private changeDetector: ChangeDetectorRef) {
+  }
+
+  ngOnInit() {
+    this.api.get_all_hives().subscribe((data) => {
+      this.hives_data = data.hives;
+      this.count_hives = data.count_hives;
+      this.elements_per_page = data.elements_per_page;
+      this.dataIsReady = true;
+    })
+  }
+
   title = 'Maya Protect';
-  toggle = new EventEmitter<Object>();
 
-  ELEMENT_DATA: any[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
-
-
+  update(selected: any) {
+    let page_selected = (selected.first / selected.rows) + 1;
+    this.hives_data = [];
+    this.api.get_hives_pagination(selected.rows, page_selected).subscribe((data) => {
+      this.hives_data = data.hives;
+      this.count_hives = data.count_hives;
+      this.elements_per_page = data.elements_per_page;
+    })
+  }
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
+  }
 }

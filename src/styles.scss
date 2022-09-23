@@ -2,3 +2,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  cursor: url('assets/img/icon/bee-cursor.svg') 32 32, default;
+}
