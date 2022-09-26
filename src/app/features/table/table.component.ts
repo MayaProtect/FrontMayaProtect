@@ -10,7 +10,7 @@ export class TableComponent implements OnInit{
   public data_display : any = [];
   public data_header: any = [];
   public total_page: number = 0;
-  public loadingBody: Boolean = true;
+  public loadingBody: boolean = true;
   @Input() data_table: any = null;
   @Input('count_hives') count_hives: number = 0;
   @Input('elements_per_page') elements_per_page: number = 0;
@@ -22,6 +22,7 @@ export class TableComponent implements OnInit{
       this.data_header.push(key)
     })
     this.data_display = this.data_table;
+    this.loadingBody = false;
   }
 
   constructor() {
