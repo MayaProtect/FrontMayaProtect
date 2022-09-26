@@ -1,7 +1,6 @@
 <app-header [title]="title"></app-header>
-
-<mat-grid-list rowHeight="100px">
-  <mat-grid-tile></mat-grid-tile>
-</mat-grid-list>
-
-<app-table [data_table]="ELEMENT_DATA"></app-table>
+<ng-template [ngIf]="dataIsReady">
+<div class="my_table">
+  <app-table (newNumberPage)="update($event)" [data_table]="hives_data" [count_hives]="count_hives" [elements_per_page]="elements_per_page"></app-table>
+</div>
+</ng-template>

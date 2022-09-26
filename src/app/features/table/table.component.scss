@@ -1,11 +1,21 @@
-table {
+p-table:hover {
   width: 100%;
+  cursor: url("data:assets/img/icon/bee-cursor.svg"), auto;
+}
+
+cursor .test {
+  cursor: url("data:assets/img/icon/bee-cursor.svg"), auto;
 }
 
 .row-color-yellow {
-    background-color: yellow;
+  background-color: #F6F78A;
 }
 
 .row-color-black {
-    background-color: black;
+  background-color: #2e2e28;
 }
+ .row-text-color {
+   color: white;
+ }
+
+
