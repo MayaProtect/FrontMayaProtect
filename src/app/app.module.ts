@@ -16,6 +16,7 @@ import { HeaderComponent } from './features/header/header.component';
 import { TableComponent } from './features/table/table.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AddEventComponent } from './pages/add-event/add-event.component';
+import { DetailEventComponent } from './pages/detail-event/detail-event.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AddEventComponent } from './pages/add-event/add-event.component';
     HeaderComponent,
     TableComponent,
     HomeComponent,
-    AddEventComponent
+    AddEventComponent,
+    DetailEventComponent
   ],
     imports: [
         BrowserModule,
@@ -42,5 +44,4 @@ import { AddEventComponent } from './pages/add-event/add-event.component';
 })
 
 export class AppModule {
-  title = "mon titre"
  }

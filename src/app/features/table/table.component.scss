@@ -1,3 +1,4 @@
+/*
 p-table:hover {
   width: 100%;
   cursor: url("data:assets/img/icon/bee-cursor.svg"), auto;
@@ -6,16 +7,23 @@ p-table:hover {
 cursor .test {
   cursor: url("data:assets/img/icon/bee-cursor.svg"), auto;
 }
-
+*/
 .row-color-yellow {
+  font-weight: bold;
   background-color: #F6F78A;
+  color: #2e2e28;
 }
 
 .row-color-black {
+  font-weight: bold;
   background-color: #2e2e28;
+  color: white;
 }
- .row-text-color {
-   color: white;
- }
+
+.my_table {
+  border: 5px solid #e9ecef;
+  border-radius: 25px;
+}
+
 
 

@@ -1,6 +1,6 @@
-<app-header [title]="title"></app-header>
+
 <ng-template [ngIf]="dataIsReady">
-<div class="my_table">
-  <app-table (newNumberPage)="update($event)" [data_table]="hives_data" [count_hives]="count_hives" [elements_per_page]="elements_per_page"></app-table>
+<div class="layout">
+  <app-table (newNumberPage)="update($event)" [data_table]="hives_data" [count_hives]="count_hives" [route_link]="'/detail/'" [isRouteOn]="true"></app-table>
 </div>
 </ng-template>
