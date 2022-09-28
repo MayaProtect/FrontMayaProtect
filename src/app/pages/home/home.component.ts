@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
-import { Observable, Observer, interval, async } from "rxjs";
+import {Component, OnInit, ChangeDetectorRef, AfterContentChecked } from '@angular/core';
 import { HivesService } from "../../services/hives.service";
 
 @Component({
@@ -19,7 +18,6 @@ export class HomeComponent implements OnInit, AfterContentChecked {
     this.api.get_all_hives().subscribe((data) => {
       this.hives_data = data.hives;
       this.count_hives = data.count_hives;
-      this.elements_per_page = data.elements_per_page;
       this.dataIsReady = true;
     })
   }
@@ -32,7 +30,6 @@ export class HomeComponent implements OnInit, AfterContentChecked {
     this.api.get_hives_pagination(selected.rows, page_selected).subscribe((data) => {
       this.hives_data = data.hives;
       this.count_hives = data.count_hives;
-      this.elements_per_page = data.elements_per_page;
     })
   }
   ngAfterContentChecked(): void {

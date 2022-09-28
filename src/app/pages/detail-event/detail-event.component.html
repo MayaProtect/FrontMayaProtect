@@ -1,0 +1,6 @@
+<ng-template [ngIf]="dataIsReady">
+  <div style="text-align: center;"><p style="font-weight: bold;">Id Hives:  </p>{{ data.id }}</div>
+  <div class="layout">
+    <app-table (newNumberPage)="update($event)" [data_table]="events_data" [count_hives]="count_events" [route_link]="'/home'" [isRouteOn]="false"></app-table>
+  </div>
+</ng-template>

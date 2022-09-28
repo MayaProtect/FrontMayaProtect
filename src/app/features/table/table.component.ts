@@ -9,17 +9,17 @@ import {LazyLoadEvent} from "primeng/api";
 export class TableComponent implements OnInit{
   public data_display : any = [];
   public data_header: any = [];
-  public total_page: number = 0;
   public loadingBody: boolean = true;
   @Input() data_table: any = null;
-  @Input('count_hives') count_hives: number = 0;
-  @Input('elements_per_page') elements_per_page: number = 0;
+  @Input() count_hives: number = 0;
+  @Input() route_link: string = '';
+  @Input() isRouteOn: boolean = false;
   @Output() newNumberPage = new EventEmitter<any>();
 
   async ngOnInit() {
-    this.total_page = Math.ceil(this.count_hives / this.elements_per_page);
     Object.keys(this.data_table[0]).forEach(key => {
-      this.data_header.push(key)
+      let titleFormat = key.charAt(0).toUpperCase() + key.slice(1);;
+      this.data_header.push({key: key, title: titleFormat.replace(/\_/g, ' ')})
     })
     this.data_display = this.data_table;
     this.loadingBody = false;
