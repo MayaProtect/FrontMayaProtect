@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
 
 
 export class HivesService {
-  private url: string = 'https://devel.api.mayaprotect.ovh/';
+  private url: string = 'http://devel.api.mayaprotect.ovh/';
 
   constructor(private http: HttpClient) { }
 
