@@ -7,11 +7,6 @@
       <th scope="row" *ngFor="let el of data_header">{{el.title}}</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="loadingBody">
-    <tr>
-      <td><p-skeleton></p-skeleton></td>
-    </tr>
-  </ng-template>
   <ng-template pTemplate="body" let-data let-rowIndex="rowIndex">
     <tr [routerLink]="[route_link, data.id]" *ngIf="isRouteOn"  style="border: 5px solid #e9ecef;border-radius: 25px;">
       <td *ngFor="let el of data_header" [ngClass]="rowIndex % 2 == 0 ? 'row-color-yellow' : 'row-color-black'">

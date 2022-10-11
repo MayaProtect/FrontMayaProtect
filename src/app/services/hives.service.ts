@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 @Injectable({
@@ -8,15 +8,16 @@ import {Observable} from "rxjs";
 
 
 export class HivesService {
+  private url: string = 'https://devel.api.mayaprotect.ovh/';
 
   constructor(private http: HttpClient) { }
 
   get_all_hives(): Observable<any> {
-    return this.http.get<hiveResult>('http://localhost:3000/api/hives');
+    return this.http.get<hiveResult>(this.url + 'api/hives');
   }
 
   get_hives_pagination(limit: number, page: number) {
-    return this.http.get<hiveResult>('http://localhost:3000/api/hives?limit=' + limit +  '&page=' + page);
+    return this.http.get<hiveResult>(this.url + 'api/hives?limit=' + limit +  '&page=' + page);
   }
 
   get_event_of_hives(id: string) {
@@ -63,12 +64,19 @@ export class HivesService {
 
       ]
     };
-    /* future service à brancher
-    return this.http.get<eventsResult>('http://localhost:3000/api/hives/' + id + '/events');
-     */
     return provisoire;
   }
-
+  putEvent(id: string, body: any) {
+    let myHead = new HttpHeaders()
+      .set('accept', 'application/json')
+      .set('Content-Type', 'application/json')
+    let requestUrl = this.url + 'api/hives/' + id + '/events';
+    this.http
+      .put<any>(requestUrl, body, { headers: myHead })
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
 
 }
 

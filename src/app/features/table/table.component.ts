@@ -30,10 +30,12 @@ export class TableComponent implements OnInit{
   }
   ngOnChanges() {
     this.data_display = this.data_table;
+    this.loadingBody = false;
   }
   displayedColumns: string[] = this.data_header;
 
   loadHives (event: LazyLoadEvent) {
     this.newNumberPage.emit(event)
+    this.loadingBody = true;
   }
 }
