@@ -3,3 +3,24 @@
   margin: auto;
   width: 95%;
 }
+
+.graph {
+  padding-top: 40px;
+  margin: auto;
+  width: 70%;
+}
+
+.center {
+  text-align: center;
+  border: 3px solid green;
+}
+
+.position-left {
+  position: relative;
+  left: 2%;
+}
+
+.parent {
+  display: flex;
+  justify-content: space-between;
+}

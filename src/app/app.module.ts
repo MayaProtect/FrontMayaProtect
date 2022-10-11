@@ -11,12 +11,20 @@ import { SkeletonModule } from 'primeng/skeleton';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from "primeng/inputtextarea";
+import { ChartModule } from 'primeng/chart';
+import { ButtonModule } from "primeng/button";
+import { CardModule } from "primeng/card";
+import { ToastModule } from "primeng/toast";
+import { RippleModule } from "primeng/ripple";
 // Custom Module import
 import { HeaderComponent } from './features/header/header.component';
 import { TableComponent } from './features/table/table.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AddEventComponent } from './pages/add-event/add-event.component';
 import { DetailEventComponent } from './pages/detail-event/detail-event.component';
+import { ChartComponent } from './features/chart/chart.component';
+import { FormComponent } from './features/form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,9 @@ import { DetailEventComponent } from './pages/detail-event/detail-event.componen
     TableComponent,
     HomeComponent,
     AddEventComponent,
-    DetailEventComponent
+    DetailEventComponent,
+    ChartComponent,
+    FormComponent
   ],
     imports: [
         BrowserModule,
@@ -37,7 +47,13 @@ import { DetailEventComponent } from './pages/detail-event/detail-event.componen
         TableModule,
         ToolbarModule,
         InputTextModule,
-        FormsModule
+        InputTextareaModule,
+        FormsModule,
+        ChartModule,
+        ButtonModule,
+        CardModule,
+        ToastModule,
+        RippleModule
     ],
   providers: [AppRoutingModule],
   bootstrap: [AppComponent]

@@ -8,6 +8,10 @@ cursor .test {
   cursor: url("data:assets/img/icon/bee-cursor.svg"), auto;
 }
 */
+.thead {
+  border: 5px solid #e9ecef;
+  border-radius: 25px;
+}
 .row-color-yellow {
   font-weight: bold;
   background-color: #F6F78A;
@@ -22,7 +26,7 @@ cursor .test {
 
 .my_table {
   border: 5px solid #e9ecef;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 
