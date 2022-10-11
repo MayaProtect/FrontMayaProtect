@@ -14,6 +14,10 @@ import { of } from 'rxjs';
 })
 export class DetailEventComponent implements OnInit {
   dataChart: any;
+  dataWeight: any;
+  dataWeightOption: any;
+  dataSound: any;
+  dataSoundOptions: any;
   chartOptions: any;
   dataIsReady: boolean = false;
   formNewEvent: any;
@@ -33,28 +37,22 @@ export class DetailEventComponent implements OnInit {
     })
     this.dataIsReady = true;
     provisoire = this.api.get_event_of_hives(this.data.id);
-    this.events_data = provisoire.events;
+    console.log(provisoire);
+    this.events_data = provisoire.events
     this.formNewEvent = [
       {key: 'id', value: this.data.id, title: 'Hive Id', type: 'inputText', ngModel: this.data.id, disabledBool: true},
       {key: 'eventType', value: 'event type', title: 'Event Type', type: 'inputText', ngModel: '', disabledBool: false},
       {key: 'description', value: 'description', title: 'Description', type: 'inputArea', ngModel: '', disabledBool: false}
     ]
     this.dataChart = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
       datasets: [
         {
-          label: 'First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40],
-          fill: false,
-          borderColor: '#42A5F5',
-          tension: .4
-        },
-        {
-          label: 'Second Dataset',
-          data: [28, 48, 40, 19, 86, 27, 90],
-          fill: false,
-          borderColor: '#FFA726',
-          tension: .4
+          label: 'degré',
+          data: [34.5, 34.5, 34.5, 34.6, 34.6, 34.6, 34.6],
+          fill: true,
+          borderColor: '#F6F78A',
+          tension: 0.1
         }
       ]
     };
@@ -85,7 +83,32 @@ export class DetailEventComponent implements OnInit {
         }
       }
     };
+    this.dataWeight = {
+      labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+        datasets: [
+        {
+          label: 'Kg',
+          data: [35, 34.5, 34, 33.5, 33, 32, 31],
+          fill: true,
+          borderColor: '#F6F78A',
+          tension: 0.1
+        }
+      ]
+    };
+    this.dataSound = {
+      labels: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+      datasets: [
+        {
+          label: 'dB',
+          data: [60.2, 60.1, 60, 59.9, 59.8, 59.7, 59.6],
+          fill: true,
+          borderColor: '#F6F78A',
+          tension: 0.1
+        }
+      ]
+    };
   }
+
   addNewEvent(res: any) {
     let body = {
       'eventType': res[1].ngModel,
@@ -101,6 +124,8 @@ export class DetailEventComponent implements OnInit {
         {key: 'description', value: 'description', title: 'Description', type: 'inputArea', ngModel: '', disabledBool: false}
       ]
       this.addEvent = false;
+      let test = this.api.get_event_of_hives(this.data.id)
+      console.log(test);
     } catch (err) {
       console.log(err);
       this.messageService.add({severity: 'error', summary: 'Error', detail: 'The event are not created'})
