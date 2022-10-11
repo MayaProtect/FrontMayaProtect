@@ -1,11 +1,15 @@
 <div class="parent">
-    <div>
-      <h1>Id Hives: {{ data.id }} </h1>
-    </div>
+  <button pButton type="button" label="Back" class="p-button-secondary" [routerLink]="['/home']" style="top: 10px; right: 10px;"></button>
     <div>
       <button pButton type="button" label="Add Event" class="p-button-warning" style="top: 10px; right: 10px;" (click)="addEventAction()">
       </button>
     </div>
+</div>
+
+<div class="parent">
+  <div>
+    <h1>Id Hives: {{ data.id }} </h1>
+  </div>
 </div>
 
 <p-toast></p-toast>
@@ -26,12 +30,22 @@
 <app-form [dataForm]="formNewEvent" (putData)="addNewEvent($event)" (openStatus)="closeEvent()"></app-form>
 </div>
 
+<div class="parent">
 <div class="graph">
-  <h5>Basic</h5>
+  <h5>Température ruche</h5>
   <app-chart [basicData]="dataChart" [basicOptions]="chartOptions" ></app-chart>
 </div>
 
+<div class="graph">
+  <h5>Poids ruche</h5>
+  <app-chart [basicData]="dataWeight" [basicOptions]="chartOptions" ></app-chart>
+</div>
 
+<div class="graph">
+  <h5>Volume sonore ruche</h5>
+  <app-chart [basicData]="dataSound" [basicOptions]="chartOptions" ></app-chart>
+</div>
+</div>
 <ng-template [ngIf]="dataIsReady">
   <div class="layout">
     <app-table (newNumberPage)="update($event)" [data_table]="events_data" [count_hives]="count_events" [route_link]="'/home'" [isRouteOn]="false"></app-table>
