@@ -49,10 +49,10 @@ export class DetailEventComponent implements OnInit {
       datasets: [
         {
           label: 'degré',
-          data: [34.5, 34.5, 34.5, 34.6, 34.6, 34.6, 34.6],
+          data: [34.5, 34.6, 34.7, 34.8, 34.9, 34.7, 34.7],
           fill: true,
           borderColor: '#F6F78A',
-          tension: 0.1
+          tension: 0.5
         }
       ]
     };
@@ -91,7 +91,7 @@ export class DetailEventComponent implements OnInit {
           data: [35, 34.5, 34, 33.5, 33, 32, 31],
           fill: true,
           borderColor: '#F6F78A',
-          tension: 0.1
+          tension: 0.5
         }
       ]
     };
@@ -103,7 +103,7 @@ export class DetailEventComponent implements OnInit {
           data: [60.2, 60.1, 60, 59.9, 59.8, 59.7, 59.6],
           fill: true,
           borderColor: '#F6F78A',
-          tension: 0.1
+          tension: 0.5
         }
       ]
     };
